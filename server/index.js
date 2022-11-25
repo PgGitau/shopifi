@@ -15,11 +15,16 @@ mongoose
 .then(() => console.log('DB connected'))
 .catch(err => console.log('DB error is =>', err));
 
+//middlewares
 //server middleware
 app.use(morgan("dev"));
 
+app.use(express.json()); //middleware to see post request in the console
+
 // router middleware
 app.use('/api', authRoutes);
+
+
 
 
 const port = process.env.PORT || 8000;
