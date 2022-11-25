@@ -34,7 +34,7 @@ const userSchema = new Schema(
   },
   
   {
-    timestamps: true,  //give us create dated automatically
+    timestamps: true  //give us create dated automatically
   }
 ); 
 
