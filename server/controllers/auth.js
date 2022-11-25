@@ -1,5 +1,9 @@
 import User from "../models/user.js";
 import { hashPassword, comparePassword} from '../helpers/auth.js';
+import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 export const register = async (req, res) => {
     try {
@@ -38,8 +42,19 @@ export const register = async (req, res) => {
         });
         user.save();
         
-        // 6. send response
-        res.json(user);
+        // 6. create signed jwt to be used in protected routes
+        const token = jwt.sign({_id: user._id}, process.env.JWT_SECRET, { expiresIn: '7d' });
+
+        // 7. send response
+        res.json({
+            user: {
+                name: user.name,
+                email: user.email,
+                address: user.address,
+                role: user.role,
+            },
+            token // same as token: token
+        });
         
         
     } catch (err) {
