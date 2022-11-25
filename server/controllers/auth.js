@@ -107,3 +107,8 @@ export const login = async (req, res) => {
         console.log(err)
     }
 }
+
+// secret function as a protected route
+export const secret = async (req, res) => {
+    res.json({ currentUser: req.user })
+}
