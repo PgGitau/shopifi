@@ -17,7 +17,7 @@ import {register, login} from '../controllers/auth.js';
 router.post('/register', register);
 router.post('/login', login)
 
-//testing protected route (1. send token to header(requireSignin), 2.)
+//testing protected route (1. send token to header(done in postman headers section), 2.)
 router.get('/secret', requireSignin, (req, res) => {
     res.json({message: "You have access to this secret route"})
 })
