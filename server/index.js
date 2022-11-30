@@ -1,9 +1,11 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
+import morgan from 'morgan';
 import authRoutes from './routes/auth.js';
 // import router from './routes/auth.js';  same as authRoutes
-import morgan from 'morgan';
+import categoryRoutes from './routes/category.js';
+
 
 dotenv.config();
 
@@ -23,6 +25,7 @@ app.use(express.json()); //middleware to see post request in the console
 
 // router middleware
 app.use('/api', authRoutes);
+app.use('/api', categoryRoutes);
 
 
 
