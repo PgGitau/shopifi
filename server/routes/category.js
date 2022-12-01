@@ -12,7 +12,7 @@ import { create, update, remove, list, read } from "../controllers/category.js";
 router.post('/category', requireSignin, isAdmin, create);
 router.put('/category/:categoryId', requireSignin, isAdmin, update); // to update category; we'll use catId to get specific cat to update
 router.delete('/category/:categoryId', requireSignin, isAdmin, remove); //to delete category; "    "    "
-router.get('/category', list); // to list all categories; no middlewares, publicly available
+router.get('/categories', list); // to list all categories; no middlewares, publicly available
 router.get('/category/:slug', read); //to list a single category
 
 export default router;
