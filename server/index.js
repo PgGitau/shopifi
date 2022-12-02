@@ -5,6 +5,7 @@ import morgan from 'morgan';
 import authRoutes from './routes/auth.js';
 // import router from './routes/auth.js';  same as authRoutes
 import categoryRoutes from './routes/category.js';
+import productRoutes from './routes/product.js';
 
 
 dotenv.config();
@@ -26,6 +27,7 @@ app.use(express.json()); //middleware to see post request in the console
 // router middleware
 app.use('/api', authRoutes);
 app.use('/api', categoryRoutes);
+app.use('/api', productRoutes);
 
 
 
