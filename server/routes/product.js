@@ -1,4 +1,5 @@
 import express from 'express';
+import formidable from 'express-formidable'; // to access photos
 
 const router = express.Router();
 
@@ -9,6 +10,6 @@ import {requireSignin, isAdmin} from '../middlewares/auth.js';
 import { create } from "../controllers/product.js";
 
 // routes
-router.post('/product', requireSignin, isAdmin, create);
+router.post('/product', requireSignin, isAdmin, formidable(), create);
 
 export default router;
