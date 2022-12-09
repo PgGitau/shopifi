@@ -1,0 +1,13 @@
+.active {
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+}
+.nav-container, .nav {
+    background-color: rgb(1, 10, 97);
+}
+.nav-link, .nav-item {
+    color: white;
+}
+.nav-link:hover {
+    color: rgb(97, 235, 63);
+}
