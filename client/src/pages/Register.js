@@ -1,6 +1,6 @@
 function Register() {
     return (
-      <div className="App">
+      <div>
         <h1>This is Register Page</h1>
       </div>
     );
