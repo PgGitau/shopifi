@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 
 function Menu() {
     return (
-      <div className='nav-container border border-secondary mb-2'>
+      <div className='nav-container border border-secondary'>
         <ul className="nav d-flex justify-content-between m-1 p-2">
 
           <li className="nav-item">
