@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Jumbotron from '../components/cards/Jumbotron';
 import axios from 'axios';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
 function Register() {
     // state
@@ -34,8 +34,7 @@ function Register() {
     return (
       <div>
         <Jumbotron title="Register Page" subtitle="Please Register here" />
-        <Toaster />
-
+       
         <div className="container mt-5 border border-warning p-2">
           <div className="row">
             <div className="col-md-6 offset-md-3">
