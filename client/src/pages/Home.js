@@ -1,7 +1,9 @@
+import Jumbotron from '../components/cards/Jumbotron';
+
 function Home() {
     return (
       <div>
-        <h1>This is Home Page</h1>
+        <Jumbotron title="Home Page" subtitle="Welcome"/>
       </div>
     );
   }
