@@ -26,6 +26,9 @@ function Login() {
             if (data?.error) {
               toast.error(data.error);
             } else {
+              //save to localStorage so when page reloads
+              //the data still exists in the localStorage
+              localStorage.setItem('auth', JSON.stringify(data));
               setAuth({ ...auth, user: data.user, token: data.token });
               toast.success("Login successful")
             }

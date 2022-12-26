@@ -25,10 +25,13 @@ function Register() {
             );
             console.log(data)
             if (data?.error) {
-                toast.error(data.error);
+              toast.error(data.error);
             } else {
+              //save to localStorage so when page reloads
+              //the data still exists in the localStorage
+              localStorage.setItem('auth', JSON.stringify(data));
               setAuth({ ...auth, token: data.token, user: data.user })
-                toast.success("Registration successful")
+              toast.success("Registration successful")
             }
         } catch (err) {
             console.log(err)
