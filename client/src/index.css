@@ -11,3 +11,6 @@
 .nav-link:hover {
     color: rgb(97, 235, 63);
 }
+.pointer {
+    cursor: pointer;
+}
