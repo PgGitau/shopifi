@@ -21,23 +21,29 @@ function Menu() {
             </NavLink>
           </li>
 
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/login">
-              LOGIN
-            </NavLink>
-          </li>
+      {/* conditionally show and hide nav links
+      when user is not authenticated */}
+          { !auth?.user ? (
+            <>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/login">
+                  LOGIN
+                </NavLink>
+              </li>
 
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/register">
-              REGISTER
-            </NavLink>
-          </li>
-
-          <li className="nav-item">
-            <a onClick={logout} className="nav-link">
-              LOGOUT
-            </a>
-          </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/register">
+                  REGISTER
+                </NavLink>
+              </li>
+            </>
+          ) : (
+            <li className="nav-item pointer">
+              <a onClick={logout} className="nav-link">
+                LOGOUT
+              </a>
+            </li>
+          )}
         </ul>
       </div>
     );
