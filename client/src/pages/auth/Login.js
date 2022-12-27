@@ -3,6 +3,7 @@ import Jumbotron from '../../components/cards/Jumbotron';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import { useAuth } from '../../context/auth';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
     // state
@@ -12,6 +13,7 @@ function Login() {
 
     //hook
     const [ auth, setAuth ] = useAuth();
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -30,7 +32,8 @@ function Login() {
               //the data still exists in the localStorage
               localStorage.setItem('auth', JSON.stringify(data));
               setAuth({ ...auth, user: data.user, token: data.token });
-              toast.success("Login successful")
+              toast.success("Login successful");
+              navigate("/");
             }
         } catch (err) {
             console.log(err)
