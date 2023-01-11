@@ -2,7 +2,7 @@
     text-decoration: underline;
     text-decoration-thickness: 3px;
 }
-.nav-container, .nav {
+.nav-container, .nav, .dropdown-background-color {
     background-color: rgb(1, 10, 97);
 }
 .nav-link, .nav-item {
