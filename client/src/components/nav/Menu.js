@@ -21,15 +21,9 @@ function Menu() {
             </NavLink>
           </li>
 
-          <li className="nav-item">
-            <NavLink className="nav-link" aria-current="page" to="/dashboard/secret">
-              SECRET
-            </NavLink>
-          </li>
-
-      {/* conditionally show and hide nav links
+          {/* conditionally show and hide nav links
       when user is not authenticated */}
-          { !auth?.user ? (
+          {!auth?.user ? (
             <>
               <li className="nav-item">
                 <NavLink className="nav-link" to="/login">
@@ -44,11 +38,35 @@ function Menu() {
               </li>
             </>
           ) : (
-            <li className="nav-item pointer">
-              <a onClick={logout} className="nav-link">
-                LOGOUT
-              </a>
-            </li>
+            <div className="dropdown">
+              <li>
+                <a
+                  className="nav-link pointer dropdown-toggle"
+                  data-bs-toggle="dropdown"
+                >
+                  {auth?.user?.name}
+                </a>
+
+                <ul className="dropdown-menu dropdown-background-color">
+                  <li>
+                    <NavLink
+                      className="nav-link"
+                      to={`/dashboard/${
+                        auth?.user?.role === 1 ? "admin" : "user"
+                      }`}
+                    >
+                      Dashboard
+                    </NavLink>
+                  </li>
+
+                  <li className="nav-item pointer">
+                    <a onClick={logout} className="nav-link">
+                      Logout
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </div>
           )}
         </ul>
       </div>
