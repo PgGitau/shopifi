@@ -6,6 +6,7 @@ import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
 import Dashboard from './pages/user/Dashboard';
 import PrivateRoute from './components/routes/PrivateRoute';
+import Secret from './pages/Secret';
 
 const PageNotFound = () => {
   return <> 404 | Page not found</>
@@ -23,6 +24,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/dashboard" element={<PrivateRoute />}>
           <Route path="" element={<Dashboard />} />
+          <Route path="secret" element={<Secret />} />
         </Route>
         <Route path="*" element={<PageNotFound />} replace />
       </Routes>

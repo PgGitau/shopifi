@@ -3,7 +3,7 @@ import Jumbotron from '../../components/cards/Jumbotron';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import { useAuth } from '../../context/auth';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 function Login() {
     // state
@@ -14,6 +14,7 @@ function Login() {
     //hook
     const [ auth, setAuth ] = useAuth();
     const navigate = useNavigate();
+    const location = useLocation();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -33,7 +34,7 @@ function Login() {
               localStorage.setItem('auth', JSON.stringify(data));
               setAuth({ ...auth, user: data.user, token: data.token });
               toast.success("Login successful");
-              navigate("/dashboard");
+              navigate(location.state || "/dashboard");
             }
         } catch (err) {
             console.log(err)

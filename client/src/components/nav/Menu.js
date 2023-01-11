@@ -21,6 +21,12 @@ function Menu() {
             </NavLink>
           </li>
 
+          <li className="nav-item">
+            <NavLink className="nav-link" aria-current="page" to="/dashboard/secret">
+              SECRET
+            </NavLink>
+          </li>
+
       {/* conditionally show and hide nav links
       when user is not authenticated */}
           { !auth?.user ? (
