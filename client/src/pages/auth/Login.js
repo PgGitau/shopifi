@@ -21,7 +21,7 @@ function Login() {
             // destructure data from res.data console.log(res)
             // to see what res contains after posting
             const { data } = await axios.post(
-              `${process.env.REACT_APP_API}/login`,
+              `/login`,
               { email, password }
             );
             console.log(data)

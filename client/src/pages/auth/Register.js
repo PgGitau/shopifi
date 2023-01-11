@@ -22,7 +22,7 @@ function Register() {
             // destructure data from res.data console.log(res)
             // to see what res contains after posting
             const { data } = await axios.post(
-              `${process.env.REACT_APP_API}/register`,
+              `/register`,
               { name, email, password, address }
             );
             console.log(data)

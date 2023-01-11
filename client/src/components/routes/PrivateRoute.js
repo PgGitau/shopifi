@@ -15,21 +15,14 @@ function PrivateRoute() {
 
     useEffect(() => {
         const authCheck = async () => {
-            const { data } = await axios.get(
-              `${process.env.REACT_APP_API}/auth-check`,
-              {
-                headers: {
-                  Authorization: auth?.token,
-                },
-              }
-            );
+            const { data } = await axios.get(`/auth-check`);
             if (data.ok) {
                 setOk(true)
             } else {
                 setOk(false)
             }
         }
-        authCheck();
+        if (auth?.token) authCheck();
     }, [auth?.token])
 
     // check if user is authorized and has token
@@ -42,7 +35,7 @@ function PrivateRoute() {
     // }, [auth?.token]);
 
     // redirect user to outlet(in app.js) if has auth token
-    
+
     return ok ? <Outlet /> : <Loading />;
 }
 
