@@ -15,7 +15,11 @@ import { register, login, secret } from '../controllers/auth.js';
 
 // testing post route
 router.post('/register', register);
-router.post('/login', login)
+router.post('/login', login);
+
+router.get('/auth-check', requireSignin, (req, res) => {
+    res.json({ ok: true });
+});
 
 //testing protected route
 // 1. send token to header(done in postman app in headers section),
