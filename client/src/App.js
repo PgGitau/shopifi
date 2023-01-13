@@ -8,6 +8,8 @@ import Dashboard from './pages/user/Dashboard';
 import AdminDashboard from './pages/admin/Dashboard';
 import PrivateRoute from './components/routes/PrivateRoute';
 import AdminRoute from './components/routes/AdminRoute';
+import AdminCategory from './pages/admin/Category';
+import AdminProduct from './pages/admin/Product';
 
 const PageNotFound = () => {
   return <> 404 | Page not found</>
@@ -28,6 +30,8 @@ function App() {
         </Route>
         <Route path="/dashboard" element={<AdminRoute />}>
           <Route path="admin" element={<AdminDashboard />} />
+          <Route path="admin/category" element={<AdminCategory />} />
+          <Route path="admin/product" element={<AdminProduct />} />
         </Route>
         <Route path="*" element={<PageNotFound />} replace />
       </Routes>
