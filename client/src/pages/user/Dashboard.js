@@ -1,8 +1,22 @@
+import Jumbotron from "../../components/cards/Jumbotron";
+import { useAuth } from "../../context/auth";
+
 function Dashboard() {
+    // context
+    const [ auth, setAuth ] = useAuth();
+
     return (
-        <h2>User dashboard</h2>
-    )
+      <>
+        <Jumbotron
+          title={`Hello ${auth?.user?.name}`}
+          subtitle="Admin Dashboard"
+        />
+        <pre>{JSON.stringify(auth, null, 4)}</pre>
+      </>
+    );
    
 }
+
 export default Dashboard;
+  
   
