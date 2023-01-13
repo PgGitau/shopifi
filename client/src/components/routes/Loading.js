@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
-function Loading() {
+function Loading({path = "login"}) {
     // state
     const [ count, setCount ] = useState(3);
 
@@ -16,7 +16,7 @@ function Loading() {
         setCount((prevCount) => --prevCount);
       }, 1000);
       // redirect once count=0
-      count === 0 && navigate("/login", {
+      count === 0 && navigate(`/${path}`, {
         state: location.pathname
       });
       // cleanup
