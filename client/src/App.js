@@ -10,6 +10,8 @@ import PrivateRoute from './components/routes/PrivateRoute';
 import AdminRoute from './components/routes/AdminRoute';
 import AdminCategory from './pages/admin/Category';
 import AdminProduct from './pages/admin/Product';
+import UserProfile from './pages/user/Profile';
+import UserOrders from './pages/user/Orders';
 
 const PageNotFound = () => {
   return <> 404 | Page not found</>
@@ -27,6 +29,8 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/dashboard" element={<PrivateRoute />}>
           <Route path="user" element={<Dashboard />} />
+          <Route path="user/profile" element={<UserProfile />} />
+          <Route path="user/orders" element={<UserOrders />} />
         </Route>
         <Route path="/dashboard" element={<AdminRoute />}>
           <Route path="admin" element={<AdminDashboard />} />
