@@ -9,7 +9,7 @@ function Dashboard() {
       <>
         <Jumbotron
           title={`Hello ${auth?.user?.name}`}
-          subtitle="Admin Dashboard"
+          subtitle="User Dashboard"
         />
         <pre>{JSON.stringify(auth, null, 4)}</pre>
       </>
