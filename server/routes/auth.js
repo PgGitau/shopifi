@@ -17,7 +17,13 @@ import { register, login, secret } from '../controllers/auth.js';
 router.post('/register', register);
 router.post('/login', login);
 
+//check if user is authenticated
 router.get('/auth-check', requireSignin, (req, res) => {
+    res.json({ ok: true });
+});
+
+// check if user is admin
+router.get('/admin-check', requireSignin, isAdmin, (req, res) => {
     res.json({ ok: true });
 });
 
